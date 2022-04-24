@@ -1,0 +1,35 @@
+{% extends "infected.html" %}
+
+{% block title %}StudySafe Trace - Contacts for all{% endblock %}
+
+{% block csstheme %}
+  <style>
+    :root {
+      --header-bg-color: lightblue;
+      --header-border-color: turquoise;
+      --block-bg-color: paleturquoise;
+      --block-border-color: turquoise;
+    }
+  </style>
+{% endblock %}
+
+{% block header %}
+  <header>
+    <h1> All Contacts </h1>
+  </header>
+{% endblock %}
+
+
+{% block details %}
+<div class="label"> Close contacts during infectious period </div>
+<div class="info">
+    {% for contact in data %}
+    <li class="data">
+        {{contact.hkuID}} &nbsp; {{contact.name}}
+    </li>
+    {% endfor %}
+</div>
+<div class="foot">
+    <a href="http://group-k-studysafe-trace.herokuapp.com/Trace/infected"> Return </a>
+</div>
+{% endblock %}

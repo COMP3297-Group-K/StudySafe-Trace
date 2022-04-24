@@ -1,0 +1,46 @@
+{% extends "infected.html" %}
+
+{% block title %}StudySafe Trace - VENUES{% endblock %}
+
+{% block csstheme %}
+  <style>
+    :root {
+      --header-bg-color: lime;
+      --header-border-color: limegreen;
+      --block-bg-color: lightgreen;
+      --block-border-color: limegreen;
+    }
+  </style>
+{% endblock %}
+
+{% block header %}
+  <header>
+    <h1> Venues </h1>
+  </header>
+{% endblock %}
+
+{% block content %}
+<div class="subject">
+    <div class="block">
+        <div class="label">Subject:</div>
+        <div class="data">{{ subject }}</div>
+      </div>
+      <div class="block">
+        <div class="label">Date of onset/diagnosis:</div>
+        <div class="data">{{ date }}</div>
+      </div>
+</div>
+<div class="main-content">
+    <div class="label">  Venues visited during infectious period: </div>
+    <div class="info">
+        {% for venue in data %}
+        <li class="data">
+            {{venue.venue_code}}
+        </li>
+        {% endfor %}
+    </div>
+    <div class="foot">
+        <a href="http://group-k-studysafe-trace.herokuapp.com/Trace/infected"> Return </a>
+    </div>
+</div>
+{% endblock %}
