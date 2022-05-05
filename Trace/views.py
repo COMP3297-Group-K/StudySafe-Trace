@@ -23,7 +23,7 @@ class View(TemplateView):
         for infected in self.infected['infected']:
             try:
                 hkuID, date = infected['hkuID'], infected['date']
-                path = 'http://group-k-studysafe.herokuapp.com/Core/' + self.head + str(hkuID) + '/' + str(date)
+                path = 'http://group-k-studysafe.herokuapp.com/core/' + self.head + str(hkuID) + '/' + str(date)
                 data = requests.get(url=path)
             except:
                 self.error = 1
@@ -111,8 +111,8 @@ class ViewInfected(TemplateView):
         for infected in self.infected['infected']:
             hkuID, date = infected['hkuID'], str(infected['date'])
             date = date[0:4] + '-' + date[4:6] + '-' + date[6:8]
-            venues = 'http://group-k-studysafe-trace.herokuapp.com/Trace/venues/' + str(hkuID)
-            contacts = 'http://group-k-studysafe-trace.herokuapp.com/Trace/contacts/' + str(hkuID)
+            venues = 'http://group-k-studysafe-trace.herokuapp.com/trace/venues/' + str(hkuID)
+            contacts = 'http://group-k-studysafe-trace.herokuapp.com/trace/contacts/' + str(hkuID)
             data += [{'hkuID':hkuID, 'date':date, 'venues':venues, 'contacts':contacts}]
         self.data = data
 
