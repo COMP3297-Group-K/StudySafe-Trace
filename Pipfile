@@ -7,6 +7,7 @@ name = "pypi"
 gunicorn = "*"
 django = "*"
 requests = "*"
+environs = "*"
 
 [dev-packages]
 
