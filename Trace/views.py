@@ -45,7 +45,7 @@ class View(TemplateView):
         context['error'] = self.error
         context['data'] = self.data
         context['subject'] = self.subject
-        context['date'] = self.date
+        context['date'] = self.date[0:4] + '-' + self.date[4:6] + '-' + self.date[6:8]
         return context
 
 
